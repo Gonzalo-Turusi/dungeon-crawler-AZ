@@ -1,0 +1,6 @@
+# Real deployment parameters (contain subscription IDs, KV names, emails)
+infra/prod.bicepparam
+
+# Local environment overrides
+*.local.bicepparam
+.env

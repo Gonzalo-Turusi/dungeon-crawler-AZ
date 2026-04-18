@@ -1,0 +1,29 @@
+using './main.bicep'
+
+// Copy this file to prod.bicepparam and fill in your real values.
+// prod.bicepparam is gitignored — never commit real subscription IDs or KV names.
+
+param org = 'dga'
+param app = 'azdepths'
+param env = 'prod'
+param coreRegion = 'brazilsouth'
+param aiRegion = 'eastus2'
+param instance = 1
+
+// Resolved from Key Vault at deploy time (secret sql-admin-password in your vault). Never hardcode the password in source control.
+param sqlAdminPassword = az.getSecret(
+  'YOUR_SUBSCRIPTION_ID',
+  'YOUR_RESOURCE_GROUP_NAME',
+  'YOUR_KEYVAULT_NAME',
+  'sql-admin-password'
+)
+
+param tags = {
+  Environment: 'prod'
+  Application: 'azdepths'
+  Owner: 'platform-team'
+  CostCenter: 'cc-0001'
+  DataClass: 'internal'
+  ManagedBy: 'bicep'
+  CountryFocus: 'colombia'
+}
