@@ -4,3 +4,6 @@ infra/prod.bicepparam
 # Local environment overrides
 *.local.bicepparam
 .env
+
+# Azure Functions local secrets (also ignored per-project under backend/)
+**/local.settings.json
